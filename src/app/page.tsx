@@ -142,7 +142,7 @@ export default function Home() {
     <main className={styles.main}>
     <section className={styles.upperSection}>
       <div className={styles.upperSectionText}>
-        <h1>Converta rapidamente <br/> com RealNOW</h1>
+        <h1>Converta rapidamente valores <br/> com RealNOW</h1>
         <p>Realize conversões da moeda real brasileira para as principais moedas do globo com a nossa ferramenta.</p>
         </div>
       <div className={styles.upperSectionInput}>
