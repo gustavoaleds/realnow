@@ -74,7 +74,7 @@ export default function Home() {
 
     const interval = setInterval(() => {
       makeRequests();
-    }, 30000); 
+    }, 7000); 
 
     return () => clearInterval(interval);
   }, [currentInput]);
@@ -175,11 +175,12 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <footer  className={styles.footer}>
-
-          </footer>
+          <p className={styles.conversionInformation}>As cotações informadas nos cards acima são referentes ao valor comercial e atualizadas automaticamente a cada 30 segundos.</p>
     </div>
     </main>
+    <footer  className={styles.footer}>
+            <p className={styles.footerText}>Desenvolvido por: <a target='_blank' href='https://gustavoaleds.vercel.app/'><span className={styles.name}>Gustavo Alexandre</span></a> | <a target='_blank' href='https://portfolio-steel-eight-86.vercel.app/'><span  className={styles.name}>Andrezza Marcilio</span></a></p>
+    </footer>
     </div>
   )
 }

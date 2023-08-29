@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = 'http://localhost:4000';
+const apiUrl = 'https://apicotacao.onrender.com/';
 const api = axios.create({
   baseURL: apiUrl,
 });
