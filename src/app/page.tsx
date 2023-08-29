@@ -22,121 +22,68 @@ export default function Home() {
   const [ieneJaponesJPY, setIeneJaponesJPY] = useState('');
   const [pesoArgentinoARS, setPesoArgentinoARS] = useState('');
   const [francoSuicoCHF, setFrancoSuicoCHF] = useState('');
+  const [currentInput, setCurrentInput] = useState<number | undefined>(undefined);
 
-  const handleConvertDolarUSD = async () => {
-    if (inputValue !== undefined) {
-      const requestData = {
-        moedaOrigem: 'BRL',
-        moedaDestino: 'USD',
-        moedaConvertida: inputValue
-      };
-      
-      try {
-        const response = await api.post('/convert', requestData);
-        setDolarUSD(response.data.valorConvertido);
-      } catch (error) {
-        console.error('Erro:', error);
-      }
-    }
-  };
-  const handleConvertLibraEsterlinaGBP = async () => {
-    if (inputValue !== undefined) {
-      const requestData = {
-        moedaOrigem: 'BRL',
-        moedaDestino: 'GBP',
-        moedaConvertida: inputValue
-      };
-      
-      try {
-        const response = await api.post('/convert', requestData);
-        setLibraEsterlinaGBP(response.data.valorConvertido);
-      } catch (error) {
-        console.error('Erro:', error);
-      }
-    }
-  };
+  const coins = ['USD', 'GBP', 'EUR', 'JPY', 'ARS', 'CHF'];
 
-  
-  const handleConvertEuroEUR = async () => {
+  const handleConvert = async(moedaDestino: string) =>{
     if (inputValue !== undefined) {
       const requestData = {
         moedaOrigem: 'BRL',
-        moedaDestino: 'EUR',
-        moedaConvertida: inputValue
+        moedaDestino: moedaDestino,
+        moedaConvertida: currentInput
       };
       
       try {
         const response = await api.post('/convert', requestData);
-        setEuroEUR(response.data.valorConvertido);
-      } catch (error) {
-        console.error('Erro:', error);
-      }
-    }
-  };
-  const handleConvertIeneJaponesJPY = async () => {
-    if (inputValue !== undefined) {
-      const requestData = {
-        moedaOrigem: 'BRL',
-        moedaDestino: 'JPY',
-        moedaConvertida: inputValue
-      };
-      
-      try {
-        const response = await api.post('/convert', requestData);
-        setIeneJaponesJPY(response.data.valorConvertido);
-      } catch (error) {
-        console.error('Erro:', error);
-      }
-    }
-  };
 
-  const handleConvertIenePesoArgentinoARS = async () => {
-    if (inputValue !== undefined) {
-      const requestData = {
-        moedaOrigem: 'BRL',
-        moedaDestino: 'ARS',
-        moedaConvertida: inputValue
-      };
-      
-      try {
-        const response = await api.post('/convert', requestData);
-        setPesoArgentinoARS(response.data.valorConvertido);
+        switch (moedaDestino) {
+          case 'USD':
+            setDolarUSD(response.data.valorConvertido);
+            break;
+          case 'GBP':
+            setLibraEsterlinaGBP(response.data.valorConvertido);
+            break;
+          case 'EUR':
+            setEuroEUR(response.data.valorConvertido);
+            break;
+          case 'JPY':
+            setIeneJaponesJPY(response.data.valorConvertido);
+            break;
+          case 'ARS':
+            setPesoArgentinoARS(response.data.valorConvertido);
+            break;
+          case 'CHF':
+            setFrancoSuicoCHF(response.data.valorConvertido);
+            break;
+        }
       } catch (error) {
         console.error('Erro:', error);
       }
     }
-  };
-  const handleConvertFrancoSuicoCHF = async () => {
-    if (inputValue !== undefined) {
-      const requestData = {
-        moedaOrigem: 'BRL',
-        moedaDestino: 'CHF',
-        moedaConvertida: inputValue
-      };
-      
-      try {
-        const response = await api.post('/convert', requestData);
-        setFrancoSuicoCHF(response.data.valorConvertido);
-      } catch (error) {
-        console.error('Erro:', error);
-      }
-    }
-  };
-
+  }
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (inputValue !== undefined) {
-        handleConvertDolarUSD();
-        handleConvertLibraEsterlinaGBP();
-        handleConvertEuroEUR();
-        handleConvertIeneJaponesJPY();
-        handleConvertIenePesoArgentinoARS();
-        handleConvertFrancoSuicoCHF();
+    const makeRequests = () => {
+      if (currentInput !== undefined) {
+        coins.forEach((coin) => {
+          handleConvert(coin);
+        });
       }
-    }, 10000);
+    };
+    makeRequests();
+
+    const interval = setInterval(() => {
+      makeRequests();
+    }, 30000); 
 
     return () => clearInterval(interval);
-  }, [inputValue]);
+  }, [currentInput]);
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = parseFloat(event.target.value);
+    setInputValue(newValue);
+    setCurrentInput(newValue);
+  };
 
   const cards = [
     {
@@ -203,8 +150,9 @@ export default function Home() {
         <FormControl fullWidth sx={{ m: 1, width: '70%', fontSize: '20px'}} variant="standard">
           <InputLabel sx={{ color: 'black', fontSize: '21px', marginbottom: '50px'}} htmlFor="standard-adornment-amount">Real Brasileiro (BRL)</InputLabel>
           <Input
-          type='number'
-            onChange={e => setInputValue(Number(e.target.value))}
+           type="number"
+           value={inputValue !== undefined ? inputValue.toString() : ''}
+           onChange={handleInputChange}
             placeholder='Digite o valor que deseja converter'
             id="standard-adornment-amount"
             startAdornment={<InputAdornment sx={{ color: 'black', fontSize: '18px', height: '200px'}}  position="start"><Image src={brazilianFlag} width={30} height={30} alt="brazilian flag" /></InputAdornment>}
@@ -227,6 +175,9 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <footer  className={styles.footer}>
+
+          </footer>
     </div>
     </main>
     </div>
