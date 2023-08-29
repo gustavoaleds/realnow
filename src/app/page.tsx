@@ -158,6 +158,7 @@ export default function Home() {
             startAdornment={<InputAdornment sx={{ color: 'black', fontSize: '18px', height: '200px'}}  position="start"><Image src={brazilianFlag} width={30} height={30} alt="brazilian flag" /></InputAdornment>}
           />
         </FormControl>
+        <p style={{ paddingTop: '10px', textAlign: 'center',  color: 'red', fontSize: '12px'}}>A conversão pode demorar até 10 segundos.</p>
         </div>
         </div>
         </section>
