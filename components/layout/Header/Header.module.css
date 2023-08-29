@@ -2,11 +2,22 @@
   display: flex;
   width: 100%;
   height: 10vh;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  padding-left: 11%;
 }
 
 .logo{
   width: 200px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px){
+  .header{
+    justify-content: center;
+    padding-left: 0;
+  }
+  .logo{
+    width: 200px;
+  }
 }
