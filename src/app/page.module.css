@@ -207,7 +207,7 @@
   }
 
 }
-@media screen and (max-width: 425px) and (min-width: 300px){
+@media screen and (max-width: 448px) and (min-width: 300px){
   .cardsContainer{
     grid-template-columns: 95%;
     margin-top: 70px;
