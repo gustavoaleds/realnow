@@ -166,7 +166,7 @@
   justify-content: center;
   width: 100%;
   height: 5vh;
-  background: #0a41d8;
+  background: linear-gradient(90deg, #0235E2 0%, rgba(16, 233, 12, 0.53) 100%);
 }
 .footerText{
   text-align: center;
