@@ -1,34 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# RealNow - Conversão de Moedas em Tempo Real
 
-## Getting Started
+![RealNow](https://images2.imgbox.com/32/89/nqZnUlun_o.png)
 
-First, run the development server:
+Bem-vindo ao RealNow! Uma ferramenta incrível que permite que você converta valores em Real para várias moedas instantaneamente.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Características
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Conversão em Tempo Real: Veja as taxas de câmbio atualizadas no momento da conversão.
+- Moedas Disponíveis: Converta para Dólar Americano, Euro, Libra Esterlina, Iene Japonês, Peso Argentino e Franco-Suíço.
+- Responsivo: Use o RealNow em qualquer dispositivo, seja no computador ou no celular.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tecnologias Utilizadas
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Front-end: React, NextJS, CSS Modules, MaterialUI.
+- Back-end: Node.js com integração à API externa AWESOMEAPI.
 
-## Learn More
+## Como Usar
 
-To learn more about Next.js, take a look at the following resources:
+1. Acesse o projeto em [RealNow - Transformação de Moedas](https://realnow.vercel.app/).
+2. Digite o valor em Real que você quer converter.
+3. Aguarde de 5-10 segundos.
+4. Veja o valor convertido em todas as moedas disponíveis!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Colaborações
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+O projeto foi feito em parceria com [Andrezza Marcilio](https://github.com/andrezza5). Acesse o [repositório da API](https://github.com/andrezza5/ApiCotacao) para entender como funcionam as requisições integradas a este front-end.
 
-## Deploy on Vercel
+## Acesso Rápido
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Acesse o Projeto](https://realnow.vercel.app/)
+- [Prototipação no Figma](https://www.figma.com/file/pOhllnKxCGkFIjXJi7aveh/RealNow?type=design&node-id=0%3A1&mode=design&t=q2G34oVWgrDK7cXA-1)
+- [Repositório no GitHub](https://github.com/gustavoaleds/realnow)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contato
+
+Se tiver alguma dúvida ou sugestão, fique à vontade para me contatar:
+
+- Email: aledsdev@gmail.com
+- LinkedIn: [Gustavo Alexandre](https://www.linkedin.com/in/gualeds/)
